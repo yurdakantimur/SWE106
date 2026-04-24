@@ -1,0 +1,70 @@
+:root {
+  --text-color: #282828;
+  --background-color: #FDFDFD;
+  --primary-color: #0056D2;
+  --secondary-color: #E5E7EB;
+  --accent-color: #FFB800;
+  --nav-bg: #282828; 
+  --nav-border: #E5E7EB;
+  --nav-text: #E5E7EB;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+.btn-secondary{
+    background-color: var(--accent-color) !important;
+    color: #282828 !important;
+    border: none !important;
+    transition: 0.3s !important;
+}
+
+.btn-primary:hover {
+    background-color: #0044a8 !important;
+    border-color: #0044a8 !important;
+}
+
+.btn-secondary:hover {
+    background-color: #E5A600 !important;
+    border-color: #E5A600 !important;
+    color: #000000 !important;
+}
+
+.navbar-custom {
+    background-color: var(--nav-bg) !important;
+    border-bottom: 2px solid var(--primary-color); 
+    padding: 0.8rem 0;
+}
+
+.navbar-custom .nav-link {
+    color: var(--nav-text) !important;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar-custom .nav-link:hover {
+    color: var(--accent-color) !important; 
+}
+
+.navbar-brand img {
+    height: 60px !important; /* İstediğin boyuta göre ayarla */
+    width: 60px !important;  /* Kare olması için height ile aynı olmalı */
+    object-fit: cover;       /* Resim yamulmasın, dairenin içine tam otursun */
+    border-radius: 50%;      /* İşte bu kod daire yapıyor */
+    background-color: white; /* Eğer logonun arkası şeffafsa beyaz zemin iyi durur */
+}
+
+.navbar-custom .navbar-brand {
+    color: #ffffff !important;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
