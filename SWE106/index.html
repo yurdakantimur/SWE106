@@ -2,15 +2,8 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melodyn Akademi | Geleceğin Eğitimi</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-
+    <title>Melodyn Akademi</title>
     <link href="bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,49 +11,67 @@
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="WhatsApp Image 2026-04-24 at 16.13.38.jpeg" alt="Melodyn Logo" style="height: 40px; width: auto;">
+                <img src="WhatsApp Image 2026-04-24 at 16.13.38.jpeg" alt="Logo">
             </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
+            
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="anket.html">Anket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kurslar.html">Kurslar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link px-3" href="#">Dersler</a>
+                        <button class="btn btn-outline-light ms-3" data-bs-toggle="modal" data-bs-target="#sepetModal">
+                            Sepetim (0)
+                        </button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-3" href="#">Eğitmenler</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-3" href="#">Hakkımızda</a>
-                    </li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="btn btn-secondary px-4" href="#">Giriş Yap</a>
+
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-secondary" href="#">Giriş Yap</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <main class="container mt-5">
-        <div class="row align-items-center py-5">
-            <div class="col-lg-6">
-                <h1 class="display-4 fw-bold mb-4">Müzik ve Teknoloji Bir Arada.</h1>
-                <p class="lead mb-4">Melodyn Akademi ile kendi ritmini bul. Bootstrap iskeleti ve senin özel tasarımınla harika bir başlangıç yaptık.</p>
-                <div class="d-flex gap-3">
-                    <button class="btn btn-primary btn-lg px-5">Eğitime Başla</button>
-                    <button class="btn btn-outline-dark btn-lg px-4">Detaylı Bilgi</button>
+
+    <div class="p-5 text-center bg-image shadow-1-strong rounded-bottom-4" 
+     style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('anasayfa.png'); 
+            height: 500px; 
+            background-size: cover; 
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;">
+            
+  <div class="container text-white">
+    <h1 class="display-4 fw-bold">Melodyn Akademi</h1>
+    <p class="lead mb-4">Kendi ritmini bul, müziğin geleceğine yön ver.</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="kurslar.html" class="btn btn-primary btn-lg">Eğitime Başla</a>
+      <a href="#kurslar" class="btn btn-secondary  btn-lg px-4 gap-3">Kendini Keşfet</a>
+      <a href="#iletisim" class="btn btn-outline-light btn-lg px-4">Bize Ulaş</a>
+    </div>
+  </div>
+</div>
+
+    
+    <div class="modal fade" id="sepetModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sepetim</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-            </div>
-            <div class="col-lg-6 text-center">
-                <div class="p-5 bg-light rounded-5 shadow-sm border">
-                    <p class="text-muted">Görsel Alanı (Hero Image)</p>
+                <div class="modal-body text-center">
+                    <p>Sepetiniz şu an boş.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
