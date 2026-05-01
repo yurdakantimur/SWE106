@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Melodyn Akademi</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo .jpeg" alt="Logo">Melodyn Akademi
+        
+            </a>
+            
+            
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="anket.html">Anket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kurslar.html">Kurslar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+                    
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light ms-3" data-bs-toggle="modal" data-bs-target="#sepetModal">
+                            Sepetim (0)
+                        </button>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-secondary" href="#">Giriş Yap</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="p-5 text-center bg-image shadow-1-strong rounded-bottom-4" 
+     style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('anasayfa.png'); 
+            height: 500px; 
+            background-size: cover; 
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;">
+            
+  <div class="container text-white">
+    <h1 class="display-4 fw-bold">Melodyn Akademi</h1>
+    <p class="lead mb-4">Kendi ritmini bul, müziğin geleceğine yön ver.</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="kurslar.html" class="btn btn-primary btn-lg">Eğitime Başla</a>
+      <a href="anket.html" class="btn btn-secondary  btn-lg px-4 gap-3">Kendini Keşfet</a>
+      <a href="#iletisim" class="btn btn-outline-light btn-lg px-4">Bize Ulaş</a>
+    </div>
+  </div>
+</div>
+
+    
+    <div class="modal fade" id="sepetModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sepetim</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Sepetiniz şu an boş.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="info-section">
+    <div class="container">
+        <div class="info-wrapper">
+            <!-- Sol Taraf: Görsel -->
+            <div class="info-image">
+                <img src="ders.png" alt="Müzik Eğitimi">
+            </div>
+
+            <!-- Sağ Taraf: Tasarımlı Metin Alanı -->
+            <div class="info-content">
+                <h2>Müzik Yolculuğunuzun Anahtarı</h2>
+                <hr class="separator">
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🎓</div>
+                    <div class="feature-text">
+                        <h3>Kişiselleştirilmiş Eğitim</h3>
+                        <p>Öğrenme hızınıza ve tarzınıza en uygun metotlarla gelişin.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-text">
+                        <h3>Esnek Müfredat</h3>
+                        <p>Uluslararası standartlarda derslerle kendi programınızı oluşturun.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🎸</div>
+                    <div class="feature-text">
+                        <h3>Performans Odaklı</h3>
+                        <p>Teorik bilgileri gerçek sahne deneyimleriyle pekiştirin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contact-section" id="iletisim">
+    <div class="container">
+        <div class="contact-card">
+            <div class="contact-info">
+                <h2>Bize Ulaşın</h2>
+                <p>Müzik yolculuğuna başlamak için bir adım atın. Sorularınız için her zaman buradayız.</p>
+                
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <div class="text">
+                            <strong>Adres:</strong>
+                            <p>Karaosman Mahallesi, Savaş Caddesi, No: 34, Adapazarı / Sakarya</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">📞</span>
+                        <div class="text">
+                            <strong>Telefon:</strong>
+                            <p><a href="tel:5061545033">0506 154 50 33</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">📧</span>
+                        <div class="text">
+                            <strong>E-posta:</strong>
+                            <p><a href="mailto:timur.yurdakan@gmail.com">timur.yurdakan@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağ Taraf: Basit Bir İletişim Formu (Opsiyonel) -->
+            <div class="contact-form">
+                <input type="text" placeholder="Adınız Soyadınız">
+                <input type="email" placeholder="E-posta Adresiniz">
+                <textarea placeholder="Mesajınız..." rows="4"></textarea>
+                <button class="submit-btn">Mesaj Gönder</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
