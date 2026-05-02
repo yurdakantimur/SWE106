@@ -1,4 +1,5 @@
 const questions = [
+    
     {
         q: "Hangi enstrümanı çalmak istiyorsunuz?",
         options: [
@@ -9,45 +10,50 @@ const questions = [
         ]
     },
     {
+        q: "Daha önce herhangi bir enstrüman eğitimi aldın mı?",
+        options: [
+            { text: "Evet", level: "İleri" },
+            { text: "Hayır", level: "Başlangıç" },
+        ]
+    },
+    {
         q: "Günde ne kadar süre pratik yapabilirsin?",
         options: [
             { text: "30 dakikadan az", level: "Başlangıç" },
-            { text: "1 saat ve üzeri", level: "Orta" }
+            { text: "1 saat ", level: "Orta" },
+            { text: "2 saat ve üzeri", level: "İleri" }
         ]
     },
     {
-        q: "Müzik teorisi (notalar, gamlar) hakkında bilgin var mı?",
+        q: "Müzik teorisi hakkında bilgin var mı?",
         options: [
             { text: "Sıfırdan öğrenmek istiyorum", level: "Başlangıç" },
-            { text: "Biraz temelim var", level: "Orta" }
+            { text: "Biraz temelim var", level: "Orta" },
+            { text: "İyi derecede biliyorum", level: "İleri" }
         ]
     },
     {
-        q: "Hangi tarz müzikler seni daha çok cezbeder?",
+        q: "Daha önce herhangi bir grupta çaldın mı?",
         options: [
-            { text: "Rock / Metal / Pop", style: "modern" },
-            { text: "Klasik / Jazz / Blues", style: "klasik" }
+            { text: "Evet", style: "modern" },
+            { text: "Hayır", style: "klasik" },
+            
         ]
     },
     {
         q: "Kendi bestelerini yapmayı mı, sevdiğin şarkıları çalmayı mı istersin?",
         options: [
             { text: "Kendi müziğimi yaratmak", style: "yaratici" },
-            { text: "Popüler eserleri çalmak", style: "icraci" }
+            { text: "Popüler eserleri çalmak", style: "icraci" },
+            { text: "Her ikisi de", style: "karma" }
         ]
     },
-    {
-        q: "Bir grupta çalmak mı istersin yoksa solo performans mı?",
-        options: [
-            { text: "Grup ile sahne almak", style: "grup" },
-            { text: "Bireysel ilerlemek", style: "solo" }
-        ]
-    },
+    
     {
         q: "Daha önce başka bir enstrüman çaldın mı?",
         options: [
-            { text: "Hayır, bu ilk olacak", level: "Başlangıç" },
-            { text: "Evet, bir miktar deneyimim var", level: "Orta" }
+            { text: "Hayır", level: "Başlangıç" },
+            { text: "Evet", level: "İleri" },
         ]
     }
 ];

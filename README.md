@@ -1,7 +1,7 @@
 # SWE106
-Mutafa Timur Yurdakan 
-Adem Yiğit Fidan
-Saltuk Buğra Danişment B241202023 
+Mutafa Timur Yurdakan B241202018 { html ,javascript }
+Adem Yiğit Fidan B241202056 {html css }
+Saltuk Buğra Danişment B241202023 {css reporting}
 
 
 🎵 Project Description
