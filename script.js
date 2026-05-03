@@ -1,5 +1,82 @@
-const questions = [
+// ==========================================
+// 1. SEPET VE GİRİŞ SİSTEMİ (YENİ EKLENENLER)
+// ==========================================
+
+// Sepeti tarayıcı hafızasından çek veya boş dizi oluştur
+let sepet = JSON.parse(localStorage.getItem('melodyn_sepet')) || [];
+
+// Giriş Yap Butonu Fonksiyonu
+function loginAlert() {
+    console.log("Giriş butonuna tıklandı!"); 
+    alert("Giriş yapıldı!");
+}
+
+// Sepete Kurs Ekleme
+function sepeteEkle(kursAdi) {
+    sepet.push(kursAdi);
+    localStorage.setItem('melodyn_sepet', JSON.stringify(sepet));
+    sepetiGuncelle();
+    alert(kursAdi + " başarıyla sepete eklendi!");
+}
+
+// Sepetten Kurs Çıkarma
+function sepettenCikar(index) {
+    sepet.splice(index, 1);
+    localStorage.setItem('melodyn_sepet', JSON.stringify(sepet));
+    sepetiGuncelle();
+}
+
+// Sepet Listesini ve Sayısını Güncelleme
+function sepetiGuncelle() {
+    const sepetButonu = document.getElementById('cart-btn');
+    const sepetListesi = document.getElementById('sepet-listesi');
     
+    // Navbar'daki sayıyı güncelle
+    if (sepetButonu) sepetButonu.innerText = `Sepetim (${sepet.length})`;
+    
+    // Sepet penceresindeki listeyi güncelle
+    if (sepetListesi) {
+        sepetListesi.innerHTML = "";
+        sepet.forEach((kurs, index) => {
+            sepetListesi.innerHTML += `
+                <li style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:14px; color: white;">
+                    ${kurs}
+                    <button onclick="sepettenCikar(${index})" style="background:none; border:none; color:#ff4444; cursor:pointer; font-weight:bold;">[X]</button>
+                </li>`;
+        });
+        
+        if (sepet.length === 0) {
+            sepetListesi.innerHTML = "<li style='font-size:12px; color:#aaa; text-align:center;'>Sepetiniz boş kanka.</li>";
+        }
+    }
+}
+
+// Sepet Penceresini Aç/Kapat
+function sepetiAcKapat() {
+    const pencere = document.getElementById('sepet-penceresi');
+    if (pencere) {
+        pencere.style.display = (pencere.style.display === 'none' || pencere.style.display === '') ? 'block' : 'none';
+    }
+}
+
+// Sepeti Onayla
+function sepetiOnayla() {
+    if (sepet.length === 0) {
+        alert("Önce sepete bir kurs eklemelisin kanka!");
+    } else {
+        alert("Sepet onaylandı! Melodyn Akademi ailesine hoş geldin.");
+        sepet = [];
+        localStorage.removeItem('melodyn_sepet');
+        sepetiGuncelle();
+        sepetiAcKapat();
+    }
+}
+
+// ==========================================
+// 2. ANKET SİSTEMİ (MEVCUT KODLARIN)
+// ==========================================
+
+const questions = [
     {
         q: "Hangi enstrümanı çalmak istiyorsunuz?",
         options: [
@@ -37,7 +114,6 @@ const questions = [
         options: [
             { text: "Evet", style: "modern" },
             { text: "Hayır", style: "klasik" },
-            
         ]
     },
     {
@@ -48,7 +124,6 @@ const questions = [
             { text: "Her ikisi de", style: "karma" }
         ]
     },
-    
     {
         q: "Daha önce başka bir enstrüman çaldın mı?",
         options: [
@@ -61,7 +136,6 @@ const questions = [
 
 let currentStep = 0;
 let userSelection = { instrument: "", level: "Başlangıç" };
-// Tracks each answer for back navigation
 let answers = [];
 
 function startSurvey() {
@@ -72,20 +146,20 @@ function startSurvey() {
 
 function loadQuestion() {
     const container = document.getElementById("question-container");
+    if(!container) return;
 
     container.style.opacity = 0;
     container.style.transform = "translateY(10px)";
 
     setTimeout(() => {
         const qData = questions[currentStep];
-
         const progress = (currentStep / questions.length) * 100;
+        
         document.getElementById("survey-progress").style.width = progress + "%";
         document.getElementById("step-counter").innerText = `Soru ${currentStep + 1} / ${questions.length}`;
-
         document.getElementById("back-btn").style.display = currentStep > 0 ? "inline-block" : "none";
-
         document.getElementById("question-text").innerText = qData.q;
+        
         const optionsDiv = document.getElementById("options");
         optionsDiv.innerHTML = "";
 
@@ -104,11 +178,8 @@ function loadQuestion() {
 }
 
 function handleSelection(opt, btnEl) {
-    if (btnEl) {
-        btnEl.classList.add("option-selected");
-    }
+    if (btnEl) btnEl.classList.add("option-selected");
 
-    // Save snapshot for back navigation
     answers[currentStep] = {
         opt,
         instrument: userSelection.instrument,
@@ -128,13 +199,11 @@ function handleSelection(opt, btnEl) {
 function goBack() {
     if (currentStep <= 0) return;
     currentStep--;
-
     const prev = answers[currentStep];
     if (prev) {
         userSelection.instrument = prev.instrument;
         userSelection.level = prev.level;
     }
-
     loadQuestion();
 }
 
@@ -145,9 +214,7 @@ function finishSurvey() {
     document.getElementById("survey-main").style.display = "none";
     const resultContainer = document.getElementById("result-container");
     resultContainer.style.display = "block";
-    resultContainer.style.opacity = 0;
-    resultContainer.style.transform = "translateY(20px)";
-    resultContainer.style.transition = "all 0.6s ease";
+    
     setTimeout(() => {
         resultContainer.style.opacity = 1;
         resultContainer.style.transform = "translateY(0)";
@@ -167,7 +234,7 @@ function finishSurvey() {
     buyBtn.innerText = `${formattedInstrument} Kursuna Git`;
 }
 
-// Keyboard navigation: press 1/2/3/4 to select that option
+// Klavye Navigasyonu
 document.addEventListener("keydown", (e) => {
     const num = parseInt(e.key);
     if (isNaN(num) || num < 1) return;
@@ -180,3 +247,6 @@ document.addEventListener("keydown", (e) => {
         btns[num - 1].click();
     }
 });
+
+// Sayfa yüklendiğinde sepeti başlat
+window.addEventListener('DOMContentLoaded', sepetiGuncelle);

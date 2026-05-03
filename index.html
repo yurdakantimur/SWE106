@@ -9,13 +9,11 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-custom" style="display: flex;">
+    <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="logo .jpeg" alt="Logo"> Melodyn Akademi
-        
             </a>
-            
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Menüyü aç">
                 <span class="navbar-toggler-icon"></span>
@@ -27,14 +25,26 @@
                     <li class="nav-item"><a class="nav-link" href="kurslar.html">Kurslar</a></li>
                     <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
 
-                    <li class="nav-item">
-                        <button class="btn btn-outline-light ms-3" data-bs-toggle="modal" data-bs-target="#sepetModal">
+                    <!-- SEPET BUTONU VE LİSTESİ -->
+                    <li class="nav-item position-relative">
+                        <button class="btn btn-outline-light ms-3" id="cart-btn" onclick="sepetiAcKapat()">
                             Sepetim (0)
                         </button>
+                        
+                        <!-- Sepet Penceresi -->
+                        <div id="sepet-penceresi" style="display:none; position:absolute; right:0; top:55px; width:280px; background:#1a1a1a; border:1px solid #ffb400; border-radius:12px; padding:15px; z-index:9999; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                            <h5 style="color:#ffb400; font-size: 1.1rem; border-bottom: 1px solid #333; pb-2;">Sepetiniz</h5>
+                            <ul id="sepet-listesi" style="list-style:none; padding:10px 0; max-height:250px; overflow-y:auto; margin:0;">
+                                <!-- JS ile dolacak -->
+                            </ul>
+                            <div style="border-top: 1px solid #333; pt-2; margin-top:10px;">
+                                <button class="btn btn-warning w-100 fw-bold" onclick="sepetiOnayla()">Sepeti Onayla</button>
+                            </div>
+                        </div>
                     </li>
 
                     <li class="nav-item ms-3">
-                        <a class="btn btn-secondary" href="#">Giriş Yap</a>
+                        <button class="btn btn-warning" onclick="loginAlert()">Giriş Yap</button>
                     </li>
                 </ul>
             </div>
@@ -50,159 +60,78 @@
             align-items: center;
             justify-content: center;">
             
-  <canvas class="dot-grid-canvas" aria-hidden="true"></canvas>
-  <div class="container text-white">
-    <h1 class="display-4 fw-bold">Melodyn Akademi</h1>
-    <p class="lead mb-4">Kendi ritmini bul, müziğin geleceğine yön ver.</p>
-    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-      <a href="kurslar.html" class="btn btn-primary btn-lg">Eğitime Başla</a>
-      <a href="anket.html" class="btn btn-secondary  btn-lg px-4 gap-3">Kendini Keşfet</a>
-      <a href="#iletisim" class="btn btn-outline-light btn-lg px-4">Bize Ulaş</a>
-    </div>
-  </div>
-</div>
-
-    
-    <div class="modal fade" id="sepetModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Sepetim</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <p>Sepetiniz şu an boş.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-                </div>
+        <div class="container text-white">
+            <h1 class="display-4 fw-bold">Melodyn Akademi</h1>
+            <p class="lead mb-4">Kendi ritmini bul, müziğin geleceğine yön ver.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="kurslar.html" class="btn btn-primary btn-lg">Eğitime Başla</a>
+                <a href="anket.html" class="btn btn-secondary btn-lg px-4 gap-3">Kendini Keşfet</a>
+                <a href="#iletisim" class="btn btn-outline-light btn-lg px-4">Bize Ulaş</a>
             </div>
         </div>
     </div>
+
     <section class="info-section">
-    <canvas class="dot-grid-canvas" aria-hidden="true"></canvas>
-    <div class="container">
-        <div class="info-wrapper">
-            <!-- Sol Taraf: Görsel -->
-            <div class="info-image">
-                <img src="ders.png" alt="Müzik Eğitimi">
-            </div>
-
-            <!-- Sağ Taraf: Tasarımlı Metin Alanı -->
-            <div class="info-content">
-                <h2>Müzik Yolculuğunuzun Anahtarı</h2>
-                <hr class="separator">
-                
-                <div class="feature-item">
-                    <div class="feature-icon">🎓</div>
-                    <div class="feature-text">
-                        <h3>Kişiselleştirilmiş Eğitim</h3>
-                        <p>Öğrenme hızınıza ve tarzınıza en uygun metotlarla gelişin.</p>
-                    </div>
+        <div class="container">
+            <div class="info-wrapper">
+                <div class="info-image">
+                    <img src="ders.png" alt="Müzik Eğitimi">
                 </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">🛡️</div>
-                    <div class="feature-text">
-                        <h3>Esnek Müfredat</h3>
-                        <p>Uluslararası standartlarda derslerle kendi programınızı oluşturun.</p>
+                <div class="info-content">
+                    <h2>Müzik Yolculuğunuzun Anahtarı</h2>
+                    <hr class="separator">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎓</div>
+                        <div class="feature-text">
+                            <h3>Kişiselleştirilmiş Eğitim</h3>
+                            <p>Öğrenme hızınıza ve tarzınıza en uygun metotlarla gelişin.</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">🎸</div>
-                    <div class="feature-text">
-                        <h3>Performans Odaklı</h3>
-                        <p>Teorik bilgileri gerçek sahne deneyimleriyle pekiştirin.</p>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎸</div>
+                        <div class="feature-text">
+                            <h3>Performans Odaklı</h3>
+                            <p>Teorik bilgileri gerçek sahne deneyimleriyle pekiştirin.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section class="how-section">
-    <div class="container">
-        <h2 class="how-title">Nasıl Çalışır?</h2>
-        <p class="how-subtitle">Üç adımda müzik öğrenmeye başla</p>
-        <div class="how-steps">
-            <div class="how-step">
-                <div class="how-icon">📋</div>
-                <div class="how-number">1</div>
-                <h3>Anketi Doldur</h3>
-                <p>7 soruluk kısa anketimizle müzikal kişiliğini keşfet. Hangi enstrüman ve seviye sana uygun öğrenelim.</p>
-                <a href="anket.html" class="how-link">Ankete Başla →</a>
-            </div>
-            <div class="how-arrow">→</div>
-            <div class="how-step">
-                <div class="how-icon">🎸</div>
-                <div class="how-number">2</div>
-                <h3>Kursunu Seç</h3>
-                <p>Sana özel önerilen kursu incele. Gitar, piyano, bateri veya keman — başlangıçtan ileri seviyeye tüm kurslar burada.</p>
-                <a href="kurslar.html" class="how-link">Kurslara Bak →</a>
-            </div>
-            <div class="how-arrow">→</div>
-            <div class="how-step">
-                <div class="how-icon">🎵</div>
-                <div class="how-number">3</div>
-                <h3>Çalmaya Başla</h3>
-                <p>Uzman eğitmenlerle kendi hızında ilerle. Teoriden sahne performansına kadar tam destek alırsın.</p>
-                <a href="#iletisim" class="how-link">Bize Ulaş →</a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-
-<section class="contact-section" id="iletisim">
-    <div class="container">
-        <div class="contact-card">
-            <div class="contact-info">
-                <h2>Bize Ulaşın</h2>
-                <p>Müzik yolculuğuna başlamak için bir adım atın. Sorularınız için her zaman buradayız.</p>
-                
-                <div class="info-list">
-                    <div class="info-item">
-                        <span class="icon">📍</span>
-                        <div class="text">
-                            <strong>Adres:</strong>
-                            <p>Karaosman Mahallesi, Savaş Caddesi, No: 34, Adapazarı / Sakarya</p>
-                            <div class="map-container" style="margin-top:10px;">
-                                <iframe
-                                    src="https://www.google.com/maps?q=Karaosman%20Mahallesi%2C%20Savas%20Caddesi%2C%20No%3A%2034%2C%20Adapazari%2C%20Sakarya&output=embed"
-                                    width="100%" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section class="contact-section" id="iletisim">
+        <div class="container">
+            <div class="contact-card">
+                <div class="contact-info">
+                    <h2>Bize Ulaşın</h2>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span class="icon">📍</span>
+                            <div class="text">
+                                <strong>Adres:</strong>
+                                <p>Karaosman Mahallesi, Savaş Caddesi, No: 34, Adapazarı / Sakarya</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">📞</span>
+                            <div class="text">
+                                <strong>Telefon:</strong>
+                                <p><a href="tel:5061545033">0506 154 50 33</a></p>
                             </div>
                         </div>
                     </div>
-
-                    <div class="info-item">
-                        <span class="icon">📞</span>
-                        <div class="text">
-                            <strong>Telefon:</strong>
-                            <p><a href="tel:5061545033">0506 154 50 33</a></p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="icon">📧</span>
-                        <div class="text">
-                            <strong>E-posta:</strong>
-                            <p><a href="mailto:timur.yurdakan@gmail.com">timur.yurdakan@gmail.com</a></p>
-                        </div>
-                    </div>
+                </div>
+                <div class="contact-form">
+                    <input type="text" placeholder="Adınız Soyadınız">
+                    <input type="email" placeholder="E-posta Adresiniz">
+                    <textarea placeholder="Mesajınız..." rows="4"></textarea>
+                    <button class="submit-btn">Mesaj Gönder</button>
                 </div>
             </div>
-
-            <!-- Sağ Taraf: Basit Bir İletişim Formu (Opsiyonel) -->
-            <div class="contact-form">
-                <input type="text" placeholder="Adınız Soyadınız">
-                <input type="email" placeholder="E-posta Adresiniz">
-                <textarea placeholder="Mesajınız..." rows="4"></textarea>
-                <button class="submit-btn">Mesaj Gönder</button>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

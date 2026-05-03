@@ -22,13 +22,27 @@
                     <li class="nav-item"><a class="nav-link active" href="anket.html">Anket</a></li>
                     <li class="nav-item"><a class="nav-link" href="kurslar.html">Kurslar</a></li>
                     <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-light ms-3" data-bs-toggle="modal" data-bs-target="#sepetModal">
+                    
+                    <!-- SEPET BUTONU VE LİSTESİ -->
+                    <li class="nav-item position-relative">
+                        <button class="btn btn-outline-light ms-3" id="cart-btn" onclick="sepetiAcKapat()">
                             Sepetim (0)
                         </button>
+                        
+                        <!-- Sepet Penceresi (JS ile kontrol ediliyor) -->
+                        <div id="sepet-penceresi" style="display:none; position:absolute; right:0; top:55px; width:280px; background:#1a1a1a; border:1px solid #ffb400; border-radius:12px; padding:15px; z-index:9999; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                            <h5 style="color:#ffb400; font-size: 1.1rem; border-bottom: 1px solid #333; pb-2;">Sepetiniz</h5>
+                            <ul id="sepet-listesi" style="list-style:none; padding:10px 0; max-height:250px; overflow-y:auto; margin:0;">
+                                <!-- JS ile dolacak -->
+                            </ul>
+                            <div style="border-top: 1px solid #333; pt-2; margin-top:10px;">
+                                <button class="btn btn-warning w-100 fw-bold" onclick="sepetiOnayla()">Sepeti Onayla</button>
+                            </div>
+                        </div>
                     </li>
+
                     <li class="nav-item ms-3">
-                        <a class="btn btn-secondary" href="#">Giriş Yap</a>
+                        <button class="btn btn-warning" onclick="loginAlert()">Giriş Yap</button>
                     </li>
                 </ul>
             </div>
@@ -54,7 +68,6 @@
 
                 <!-- Anket Ekranı -->
                 <div id="survey-main" style="display: none;">
-                    <!-- Adım Sayacı ve İlerleme Çubuğu -->
                     <div class="progress-container mb-2">
                         <div class="progress-bar" id="survey-progress"></div>
                     </div>
@@ -84,8 +97,8 @@
         </div>
     </section>
 
+    <!-- JS BAĞLANTILARI -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

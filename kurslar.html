@@ -22,13 +22,27 @@
                     <li class="nav-item"><a class="nav-link" href="anket.html">Anket</a></li>
                     <li class="nav-item"><a class="nav-link active" href="kurslar.html">Kurslar</a></li>
                     <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-light ms-3" data-bs-toggle="modal" data-bs-target="#sepetModal">
+                    
+                    <!-- SEPET BUTONU VE LİSTESİ -->
+                    <li class="nav-item position-relative">
+                        <button class="btn btn-outline-light ms-3" id="cart-btn" onclick="sepetiAcKapat()">
                             Sepetim (0)
                         </button>
+                        
+                        <!-- Sepet Penceresi -->
+                        <div id="sepet-penceresi" style="display:none; position:absolute; right:0; top:55px; width:280px; background:#1a1a1a; border:1px solid #ffb400; border-radius:12px; padding:15px; z-index:9999; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                            <h5 style="color:#ffb400; font-size: 1.1rem; border-bottom: 1px solid #333; pb-2;">Sepetiniz</h5>
+                            <ul id="sepet-listesi" style="list-style:none; padding:10px 0; max-height:250px; overflow-y:auto; margin:0;">
+                                <!-- JS ile dolacak -->
+                            </ul>
+                            <div style="border-top: 1px solid #333; pt-2; margin-top:10px;">
+                                <button class="btn btn-warning w-100 fw-bold" onclick="sepetiOnayla()">Sepeti Onayla</button>
+                            </div>
+                        </div>
                     </li>
+
                     <li class="nav-item ms-3">
-                        <a class="btn btn-secondary" href="#">Giriş Yap</a>
+                        <button class="btn btn-warning" onclick="loginAlert()">Giriş Yap</button>
                     </li>
                 </ul>
             </div>
@@ -49,27 +63,27 @@
                     <div class="col-md-4">
                         <div class="card h-100 course-card bg-easy shadow">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold">Başlangıç</h5>
-                                <p class="small">Temel akorlar, ritim kalıpları ve parmak egzersizleri ile müziğe ilk adımını at.</p>
-                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-success">Sepete Ekle</button>
+                                <h5 class="fw-bold">Gitar - Başlangıç</h5>
+                                <p class="small">Temel akorlar ve ritim kalıpları.</p>
+                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-success" onclick="sepeteEkle('Gitar - Başlangıç', 450)">Sepete Ekle</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card h-100 course-card bg-medium shadow">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold">Orta</h5>
-                                <p class="small">Bareli akorlar, solo teknikleri ve popüler şarkı eşlikleri ile yeteneklerini geliştir.</p>
-                                <button class="btn btn-dark btn-sm w-100 mt-2 fw-bold">Sepete Ekle</button>
+                                <h5 class="fw-bold">Gitar - Orta</h5>
+                                <p class="small">Bareli akorlar ve solo teknikleri.</p>
+                                <button class="btn btn-dark btn-sm w-100 mt-2 fw-bold" onclick="sepeteEkle('Gitar - Orta', 600)">Sepete Ekle</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card h-100 course-card bg-hard shadow">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold">İleri</h5>
-                                <p class="small">Sahne performansı için profesyonel doğaçlama teknikleri.</p>
-                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-danger">Sepete Ekle</button>
+                                <h5 class="fw-bold">Gitar - İleri</h5>
+                                <p class="small">Profesyonel doğaçlama teknikleri.</p>
+                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-danger" onclick="sepeteEkle('Gitar - İleri', 850)">Sepete Ekle</button>
                             </div>
                         </div>
                     </div>
@@ -88,27 +102,27 @@
                     <div class="col-md-4">
                         <div class="card h-100 course-card bg-easy shadow">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold">Başlangıç</h5>
-                                <p class="small">Temel el koordinasyonu ve basit melodilerle piyano dünyasına giriş yap.</p>
-                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-success">Sepete Ekle</button>
+                                <h5 class="fw-bold">Piyano - Başlangıç</h5>
+                                <p class="small">Temel el koordinasyonu ve melodiler.</p>
+                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-success" onclick="sepeteEkle('Piyano - Başlangıç', 500)">Sepete Ekle</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card h-100 course-card bg-medium shadow">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold">Orta</h5>
-                                <p class="small">Çift el teknikleri, klasik ve modern eserlerle müzikal ifade gücünü artır.</p>
-                                <button class="btn btn-dark btn-sm w-100 mt-2 fw-bold">Sepete Ekle</button>
+                                <h5 class="fw-bold">Piyano - Orta</h5>
+                                <p class="small">Çift el teknikleri ve modern eserler.</p>
+                                <button class="btn btn-dark btn-sm w-100 mt-2 fw-bold" onclick="sepeteEkle('Piyano - Orta', 700)">Sepete Ekle</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card h-100 course-card bg-hard shadow">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold">İleri</h5>
-                                <p class="small">İleri seviye teori ve virtüözlük yolunda teknik ustalık çalışmaları.</p>
-                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-danger">Sepete Ekle</button>
+                                <h5 class="fw-bold">Piyano - İleri</h5>
+                                <p class="small">İleri seviye teori ve virtüözlük.</p>
+                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-danger" onclick="sepeteEkle('Piyano - İleri', 950)">Sepete Ekle</button>
                             </div>
                         </div>
                     </div>
@@ -116,85 +130,10 @@
             </div>
         </div>
 
-        <!-- BATERI -->
-        <div id="bateri" class="row instrument-row align-items-center mt-5">
-            <div class="col-lg-3 text-center mb-4 mb-lg-0">
-                <img src="bateri.png" alt="Bateri" class="img-fluid rounded-4 shadow-lg mb-3" height="100" width="110">
-                <h3 class="fw-bold text-white">Bateri</h3>
-            </div>
-            <div class="col-lg-9">
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <div class="card h-100 course-card bg-easy shadow">
-                            <div class="card-body p-4">
-                                <h5 class="fw-bold">Başlangıç</h5>
-                                <p class="small">Temel vuruş teknikleri, baget kontrolü ve basit ritimlerle tempoyu yakala.</p>
-                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-success">Sepete Ekle</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-100 course-card bg-medium shadow">
-                            <div class="card-body p-4">
-                                <h5 class="fw-bold">Orta</h5>
-                                <p class="small">Farklı müzik türlerinde ataklar ve pedal kombinasyonları üzerinde uzmanlaş.</p>
-                                <button class="btn btn-dark btn-sm w-100 mt-2 fw-bold">Sepete Ekle</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-100 course-card bg-hard shadow">
-                            <div class="card-body p-4">
-                                <h5 class="fw-bold">İleri</h5>
-                                <p class="small">Hız egzersizleri ve sahne performansı için profesyonel davul soloları.</p>
-                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-danger">Sepete Ekle</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- KEMAN -->
-        <div id="keman" class="row instrument-row align-items-center mt-5">
-            <div class="col-lg-3 text-center mb-4 mb-lg-0">
-                <img src="keman.png" alt="Keman" class="img-fluid rounded-4 shadow-lg mb-3" height="100" width="110">
-                <h3 class="fw-bold text-white">Keman</h3>
-            </div>
-            <div class="col-lg-9">
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <div class="card h-100 course-card bg-easy shadow">
-                            <div class="card-body p-4">
-                                <h5 class="fw-bold">Başlangıç</h5>
-                                <p class="small">Doğru tutuş teknikleri, yay kontrolü ve temel notalarla kemanın büyüleyici sesini keşfet.</p>
-                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-success">Sepete Ekle</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-100 course-card bg-medium shadow">
-                            <div class="card-body p-4">
-                                <h5 class="fw-bold">Orta</h5>
-                                <p class="small">Pozisyon geçişleri, vibrato tekniği ve duygulu eserlerle icra kaliteni bir üst seviyeye taşı.</p>
-                                <button class="btn btn-dark btn-sm w-100 mt-2 fw-bold">Sepete Ekle</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-100 course-card bg-hard shadow">
-                            <div class="card-body p-4">
-                                <h5 class="fw-bold">İleri</h5>
-                                <p class="small">Teknik konçertolar, çift ses çalışmaları ve profesyonel orkestra performansı teknikleri.</p>
-                                <button class="btn btn-light btn-sm w-100 mt-2 fw-bold text-danger">Sepete Ekle</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- BATERI VE KEMAN DA BENZER ŞEKİLDE ONCLICK İLE GÜNCELLENEBİLİR -->
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
