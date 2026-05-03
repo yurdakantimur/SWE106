@@ -2,6 +2,7 @@
 <html lang="tr-tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melodyn Akademi</title>
     <link href="bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -16,13 +17,16 @@
             </a>
             
             
-            <div class="collapse navbar-collapse">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Menüyü aç">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Ana Sayfa</a></li>
                     <li class="nav-item"><a class="nav-link" href="anket.html">Anket</a></li>
                     <li class="nav-item"><a class="nav-link" href="kurslar.html">Kurslar</a></li>
                     <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
-                    
+
                     <li class="nav-item">
                         <button class="btn btn-outline-light ms-3" data-bs-toggle="modal" data-bs-target="#sepetModal">
                             Sepetim (0)
@@ -114,6 +118,38 @@
         </div>
     </div>
 </section>
+<section class="how-section">
+    <div class="container">
+        <h2 class="how-title">Nasıl Çalışır?</h2>
+        <p class="how-subtitle">Üç adımda müzik öğrenmeye başla</p>
+        <div class="how-steps">
+            <div class="how-step">
+                <div class="how-icon">📋</div>
+                <div class="how-number">1</div>
+                <h3>Anketi Doldur</h3>
+                <p>7 soruluk kısa anketimizle müzikal kişiliğini keşfet. Hangi enstrüman ve seviye sana uygun öğrenelim.</p>
+                <a href="anket.html" class="how-link">Ankete Başla →</a>
+            </div>
+            <div class="how-arrow">→</div>
+            <div class="how-step">
+                <div class="how-icon">🎸</div>
+                <div class="how-number">2</div>
+                <h3>Kursunu Seç</h3>
+                <p>Sana özel önerilen kursu incele. Gitar, piyano, bateri veya keman — başlangıçtan ileri seviyeye tüm kurslar burada.</p>
+                <a href="kurslar.html" class="how-link">Kurslara Bak →</a>
+            </div>
+            <div class="how-arrow">→</div>
+            <div class="how-step">
+                <div class="how-icon">🎵</div>
+                <div class="how-number">3</div>
+                <h3>Çalmaya Başla</h3>
+                <p>Uzman eğitmenlerle kendi hızında ilerle. Teoriden sahne performansına kadar tam destek alırsın.</p>
+                <a href="#iletisim" class="how-link">Bize Ulaş →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="contact-section" id="iletisim">
     <div class="container">
         <div class="contact-card">
@@ -159,5 +195,6 @@
     </div>
 </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

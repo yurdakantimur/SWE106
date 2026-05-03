@@ -1,6 +1,6 @@
 :root {
   --text-color: #282828;
-  --background-color: #FDFDFD;
+  --background-color: #ffffff;
   --primary-color: #0056D2;
   --secondary-color: #E5E7EB;
   --accent-color: #FFB800;
@@ -506,6 +506,242 @@ html {
 @keyframes fadeInScale {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
+}
+
+/* Nasıl Çalışır Section */
+.how-section {
+    padding: 90px 0;
+    background: #1e1e1e;
+    color: #fff;
+    text-align: center;
+}
+
+.how-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.how-subtitle {
+    color: #aaa;
+    font-size: 1.05rem;
+    margin-bottom: 60px;
+}
+
+.how-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.how-step {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 40px 30px;
+    flex: 1;
+    min-width: 220px;
+    max-width: 280px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.how-step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(255,180,0,0.15);
+    border-color: rgba(255,180,0,0.3);
+}
+
+.how-icon {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+}
+
+.how-number {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #ffb400, #ffea00);
+    color: #000;
+    font-weight: 800;
+    font-size: 0.9rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.how-step h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.how-step p {
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.how-link {
+    color: #ffb400;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.how-link:hover {
+    color: #ffea00;
+}
+
+.how-arrow {
+    font-size: 1.8rem;
+    color: rgba(255,180,0,0.4);
+    align-self: center;
+    padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .how-arrow { display: none; }
+    .how-step { max-width: 100%; }
+}
+
+/* Anket — keyboard hint badge on option buttons */
+.option-btn {
+    position: relative;
+}
+
+.key-hint {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-right: 10px;
+    color: #aaa;
+    flex-shrink: 0;
+}
+
+.option-btn:hover .key-hint,
+.option-btn.option-selected .key-hint {
+    background: rgba(0,0,0,0.2);
+    border-color: rgba(0,0,0,0.2);
+    color: #000;
+}
+
+/* Flash animation when an option is selected */
+.option-selected {
+    background: #ffb400 !important;
+    color: #000 !important;
+    border-color: #ffb400 !important;
+    transform: scale(1.04) !important;
+}
+
+/* Giriş Ekranı */
+#intro-container {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.intro-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.intro-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #fff, #ffb400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
+.intro-desc {
+    color: #aaa;
+    font-size: 1.1rem;
+    max-width: 480px;
+    margin: 0 auto 30px auto;
+    line-height: 1.7;
+}
+
+.intro-meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.intro-meta span {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.btn-start {
+    background: linear-gradient(135deg, #ffb400, #ffea00);
+    color: #000;
+    border: none;
+    padding: 16px 50px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 180, 0, 0.35);
+}
+
+.btn-start:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 180, 0, 0.55);
+}
+
+/* Adım Sayacı */
+.step-counter {
+    color: #888;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    text-align: right;
+}
+
+/* Geri Butonu */
+.survey-nav {
+    text-align: left;
+}
+
+.btn-back {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #aaa;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    border-color: #ffb400;
+    color: #ffb400;
 }
 
 /* Sonuç Ekranı Yazı Stili */

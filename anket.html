@@ -11,14 +11,25 @@
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="logo .jpeg" alt="Logo">
+                <img src="logo .jpeg" alt="Logo">Melodyn Akademi
             </a>
-            <div class="collapse navbar-collapse">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Menüyü aç">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
                     <li class="nav-item"><a class="nav-link active" href="anket.html">Anket</a></li>
                     <li class="nav-item"><a class="nav-link" href="kurslar.html">Kurslar</a></li>
                     <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light ms-3" data-bs-toggle="modal" data-bs-target="#sepetModal">
+                            Sepetim (0)
+                        </button>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-secondary" href="#">Giriş Yap</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -27,29 +38,53 @@
     <section class="survey-section">
         <div class="container">
             <div id="survey-card" class="survey-card">
-                <!-- İlerleme Çubuğu -->
-                <div class="progress-container mb-4">
-                    <div class="progress-bar" id="survey-progress"></div>
+
+                <!-- Giriş Ekranı -->
+                <div id="intro-container">
+                    <div class="intro-icon">🎵</div>
+                    <h2 class="intro-title">Müzikal Yolculuğuna Başla</h2>
+                    <p class="intro-desc">Sana en uygun enstrümanı ve seviyeyi bulmak için kısa bir analiz yapacağız.</p>
+                    <div class="intro-meta">
+                        <span>📋 7 Soru</span>
+                        <span>⏱ ~2 Dakika</span>
+                        <span>🎯 Kişisel Öneri</span>
+                    </div>
+                    <button onclick="startSurvey()" class="btn-start">Ankete Başla</button>
                 </div>
 
-                <div id="question-container">
-                    <h2 id="question-text">Analiz Başlatılıyor...</h2>
-                    <div id="options" class="options-grid"></div>
+                <!-- Anket Ekranı -->
+                <div id="survey-main" style="display: none;">
+                    <!-- Adım Sayacı ve İlerleme Çubuğu -->
+                    <div class="progress-container mb-2">
+                        <div class="progress-bar" id="survey-progress"></div>
+                    </div>
+                    <p id="step-counter" class="step-counter">Soru 1 / 7</p>
+
+                    <div id="question-container">
+                        <h2 id="question-text"></h2>
+                        <div id="options" class="options-grid"></div>
+                    </div>
+
+                    <div class="survey-nav mt-4">
+                        <button id="back-btn" onclick="goBack()" class="btn-back" style="display: none;">← Geri</button>
+                    </div>
                 </div>
 
+                <!-- Sonuç Ekranı -->
                 <div id="result-container" class="result-container" style="display: none;">
                     <h2 class="result-title">Müzikal Kimliğin Belirlendi!</h2>
                     <div id="course-result" class="course-card-result"></div>
                     <div class="result-actions mt-4">
-                        <!-- Buradaki ID JS ile dinamik linklenecek -->
                         <a href="#" id="buy-course-btn" class="btn btn-warning btn-lg px-5 py-3">Kursu Satın Al</a>
                         <button onclick="location.reload()" class="btn btn-outline-light ms-2">Yeniden Çöz</button>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 
