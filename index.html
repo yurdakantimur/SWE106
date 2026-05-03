@@ -99,37 +99,62 @@
         </div>
     </section>
 
-    <section class="contact-section" id="iletisim">
-        <div class="container">
-            <div class="contact-card">
-                <div class="contact-info">
-                    <h2>Bize Ulaşın</h2>
-                    <div class="info-list">
-                        <div class="info-item">
-                            <span class="icon">📍</span>
-                            <div class="text">
-                                <strong>Adres:</strong>
-                                <p>Karaosman Mahallesi, Savaş Caddesi, No: 34, Adapazarı / Sakarya</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <span class="icon">📞</span>
-                            <div class="text">
-                                <strong>Telefon:</strong>
-                                <p><a href="tel:5061545033">0506 154 50 33</a></p>
+    <!-- index.html içindeki Contact Section Kısmı -->
+<section class="contact-section" id="iletisim">
+    <div class="container">
+        <div class="contact-card">
+            <div class="contact-info">
+                <h2>Bize Ulaşın</h2>
+                <p>Müzik yolculuğuna başlamak için bir adım atın. Sorularınız için her zaman buradayız.</p>
+                
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <div class="text">
+                            <strong>Adres:</strong>
+                            <p>Karaosman Mahallesi, Savaş Caddesi, No: 34, Adapazarı / Sakarya</p>
+                            <!-- HARİTA BURAYA GELDİ -->
+                            <div class="map-container" style="margin-top:15px; border-radius: 12px; overflow: hidden; height: 150px; border: 1px solid #333;">
+                                <iframe
+                                    src="https://www.google.com/maps?q=Karaosman%20Mahallesi%2C%20Savas%20Caddesi%2C%20No%3A%2034%2C%20Adapazari%2C%20Sakarya&output=embed"
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <input type="text" placeholder="Adınız Soyadınız">
-                    <input type="email" placeholder="E-posta Adresiniz">
-                    <textarea placeholder="Mesajınız..." rows="4"></textarea>
-                    <button class="submit-btn">Mesaj Gönder</button>
+
+                    <div class="info-item">
+                        <span class="icon">📞</span>
+                        <div class="text">
+                            <strong>Telefon:</strong>
+                            <p><a href="tel:5061545033" style="color: #fff; text-decoration: none;">0506 154 50 33</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">📧</span>
+                        <div class="text">
+                            <strong>E-posta:</strong>
+                            <p><a href="mailto:timur.yurdakan@gmail.com" style="color: #fff; text-decoration: none;">timur.yurdakan@gmail.com</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div class="contact-form">
+                <input type="text" placeholder="Adınız Soyadınız">
+                <input type="email" placeholder="E-posta Adresiniz">
+                <textarea placeholder="Mesajınız..." rows="4"></textarea>
+                <button class="submit-btn">Mesaj Gönder</button>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
