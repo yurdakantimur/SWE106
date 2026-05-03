@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-custom">
+    <nav class="navbar navbar-expand-lg navbar-custom" style="display: flex;">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="logo .jpeg" alt="Logo"> Melodyn Akademi
@@ -41,7 +41,7 @@
         </div>
     </nav>
 
-    <div class="p-5 text-center bg-image shadow-1-strong rounded-bottom-4" 
+    <div id="hero-section" class="p-5 text-center bg-image shadow-1-strong rounded-bottom-4" 
      style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('anasayfa.png'); 
             height: 500px; 
             background-size: cover; 
@@ -50,6 +50,7 @@
             align-items: center;
             justify-content: center;">
             
+  <canvas class="dot-grid-canvas" aria-hidden="true"></canvas>
   <div class="container text-white">
     <h1 class="display-4 fw-bold">Melodyn Akademi</h1>
     <p class="lead mb-4">Kendi ritmini bul, müziğin geleceğine yön ver.</p>
@@ -79,6 +80,7 @@
         </div>
     </div>
     <section class="info-section">
+    <canvas class="dot-grid-canvas" aria-hidden="true"></canvas>
     <div class="container">
         <div class="info-wrapper">
             <!-- Sol Taraf: Görsel -->
@@ -150,6 +152,7 @@
     </div>
 </section>
 
+
 <section class="contact-section" id="iletisim">
     <div class="container">
         <div class="contact-card">
@@ -163,6 +166,11 @@
                         <div class="text">
                             <strong>Adres:</strong>
                             <p>Karaosman Mahallesi, Savaş Caddesi, No: 34, Adapazarı / Sakarya</p>
+                            <div class="map-container" style="margin-top:10px;">
+                                <iframe
+                                    src="https://www.google.com/maps?q=Karaosman%20Mahallesi%2C%20Savas%20Caddesi%2C%20No%3A%2034%2C%20Adapazari%2C%20Sakarya&output=embed"
+                                    width="100%" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                         </div>
                     </div>
 
